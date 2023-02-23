@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  weather:
+    image: ghcr.io/hydrocode-de/ruins:${RUINS_VERSION}
+    ports:
+      - 42001:8501
+    restart: ${RESTART}
+    command: weather.py --server.headless true --server.fileWatcherType none --browser.gatherUsageStats false 
+  
+  extremes:
+    image: ghcr.io/hydrocode-de/ruins:${RUINS_VERSION}
+    ports:
+      - 42002:8501
+    restart: ${RESTART}
+    command: extremes.py --server.headless true --server.fileWatcherType none --browser.gatherUsageStats false 
+  
+  uncertainty:
+    image: ghcr.io/hydrocode-de/ruins:${RUINS_VERSION}
+    ports:
+      - 42003:8501
+    restart: ${RESTART}
+    command: uncertainty.py --server.headless true --server.fileWatcherType none --browser.gatherUsageStats false 
+
+  landuse:
+    image: ghcr.io/hydrocode-de/ruins:${RUINS_VERSION}
+    ports:
+      - 42004:8501
+    restart: ${RESTART}
+    command: landuse.py --server.headless true --server.fileWatcherType none --browser.gatherUsageStats false 
+
+  sunburst:
+    image: ghcr.io/hydrocode-de/ruins:${RUINS_VERSION}
+    ports:
+      - 42010:8501
+    restart: ${RESTART}
+    command: sunburst.py --server.headless true --server.fileWatcherType none --browser.gatherUsageStats false 
